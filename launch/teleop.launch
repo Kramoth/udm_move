@@ -1,0 +1,12 @@
+<launch>
+
+	<arg name="rvizconfig" default="$(find udm_move)/rviz/teleop.rviz" />
+
+	<node name="circle" pkg="udm_move" type="telop_pose.py">
+		<remap from="cmd" to="cmd_vel"/>
+	</node>
+
+	<node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

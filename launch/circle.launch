@@ -1,0 +1,10 @@
+<launch>
+<arg name="rvizconfig" default="$(find udm_move)/rviz/show_circle.rviz" />
+
+<node name="circle" pkg="udm_move" type="move_circle.py" output="screen">
+	<param name="speed" value="0.5"/>
+	<param name="radius" value="2"/>
+</node>
+
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
